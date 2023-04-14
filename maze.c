@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
     }
 
     initMazeDS(maze);
-    //printMaze(maze);
+    printMaze(maze);
 
     //algorithm
     while(!over){
@@ -99,7 +99,7 @@ int main(int argc, char *argv[]) {
 
                 //print only sometimes
                 //if(wallsDown%maxRows==0 || over!=0) printMaze(maze);
-                printMaze(maze);
+                //printMaze(maze);
             }
         }
     }
@@ -109,6 +109,8 @@ int main(int argc, char *argv[]) {
 
     if(found) printf("\nA path was found with the DFS algorithm.\n");
     else printf("Something went wrong while computing the DFS path.\n");*/
+
+    printMaze(maze);
     printf("Maze algorithm ended destroying %d walls.\n",wallsDown);
 
     clock_t difference = clock() - before;
