@@ -33,7 +33,8 @@ void findPath(cell* current, cell* end, cell* previous);
 //------------------------------MAIN---------------------------------
 int main(int argc, char *argv[]) {
     //initializing the variables
-    //srand(time(NULL));
+    clock_t before = clock(); //get the initial time -> used later to check the elapsed time;
+    srand(time(NULL));
     int over=0,i,j,wallsDown=0;
     int row, col, wall, row2, col2, wall2;
     cell** maze;
@@ -109,6 +110,10 @@ int main(int argc, char *argv[]) {
     if(found) printf("\nA path was found with the DFS algorithm.\n");
     else printf("Something went wrong while computing the DFS path.\n");*/
     printf("Maze algorithm ended destroying %d walls.\n",wallsDown);
+
+    clock_t difference = clock() - before;
+    int msec = difference*1000 / CLOCKS_PER_SEC;
+    printf("\n\nElapsed time -> %d.%d seconds\n\n",msec/1000,msec%1000);
 
     return 0;
 }
