@@ -14,10 +14,6 @@ typedef struct cell {
     struct cell **sons;
 } cell;
 
-typedef struct {
-    cell* representative;
-} ds;
-
 int maxRows;
 int maxCols;
 int found=0;
@@ -29,6 +25,7 @@ void mergeDisjointSets(cell* one, cell* two);
 cell* findRepresentative(cell* a);
 int checkReached(cell** maze);
 void findPath(cell* current, cell* end, cell* previous);
+void freeMemory(cell** maze);
 
 //------------------------------MAIN---------------------------------
 int main(int argc, char *argv[]) {
@@ -116,6 +113,8 @@ int main(int argc, char *argv[]) {
     clock_t difference = clock() - before;
     int msec = difference*1000 / CLOCKS_PER_SEC;
     printf("\n\nElapsed time -> %d.%d seconds\n\n",msec/1000,msec%1000);
+
+    freeMemory(maze);
 
     return 0;
 }
@@ -236,4 +235,19 @@ void findPath(cell* current, cell* end, cell* previous){
     }
 
     return;
+}
+
+//free all dynamically allocated memory
+void freeMemory(cell** maze){
+
+    for(int i=0;i<maxRows;i++){
+        for(int j=0;j<maxCols;j++){
+            free(maze[i][j].sons);
+        }
+    }
+
+    for(int i=0;i<maxRows;i++){
+        free(maze[i]);
+    }
+    free(maze);
 }
