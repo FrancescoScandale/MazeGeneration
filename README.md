@@ -8,5 +8,5 @@ Use the Disjoint Set theory and the interface they provide.
 To compile the file, type in the terminal: <br>
 gcc maze.c -o maze <br><br>
 
-To execute it, type: <br>
-./maze
+To then execute it, with n and m being the sizes of the maze to be generated, type: <br>
+./maze n m
