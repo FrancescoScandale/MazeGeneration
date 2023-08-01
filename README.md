@@ -4,7 +4,7 @@ Starting from a grid (representing cells of a maze, each with its 4 walls), remo
 Stop when there is a path between the top left cell and the bottom right cell.
 Use the Disjoint Set theory and the interface they provide.
 
-## Compiling and executing
+## Compile and execute
 To compile the file, type in the terminal: <br>
 gcc maze.c -o maze <br><br>
 
